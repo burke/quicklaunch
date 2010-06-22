@@ -1,17 +1,21 @@
+#quicklaunchcontainer {
+  position:    absolute;
+  left:        50%;
+  top:         30%;
+}
 
 form#quicklaunch {
+  position:    absolute;
+  z-index:     9001;
   width:       450px;
   height:      128px;
   background:  url("bar.png") top left no-repeat;
-  position:    absolute;
-  z-index:     9001;
-  left:        50%;
-  top:         30%;
   margin:      -64px 0 0 -225px;
 }
 
 form#quicklaunch input {
   position:    absolute;
+  z-index:     9002;
   left:        128px;
   top:         49px;
   width:       278px;
@@ -21,4 +25,13 @@ form#quicklaunch input {
   font-size:   16px; 
   font-family: helvetica,arial,sans;
   color:       #222;
+}
+
+div#quicklaunchdrawer {
+  height:      400px;
+  width:       438px;
+  background:  url('backpanel.png');
+  position:    absolute;
+  z-index:     8000;
+  margin:      -32px 0 0 -219px;
 }
