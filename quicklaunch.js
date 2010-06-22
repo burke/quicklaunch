@@ -100,12 +100,16 @@
           module = _b[_a];
           module.relevance(text) !== 0 ? drawerItems.push(module) : null;
         }
+        drawerItems = _.sortBy(drawerItems, function(e) {
+          return e.relevance(text);
+        });
+        // TODO don't calculate this twice
         return redrawDrawer();
       }), 0);
       return true;
     };
     qlSubmit = function(evt) {
-      modules[0].performAction(qlinput.val());
+      modules[drawerSelection].performAction(qlinput.val());
       return true;
     };
     modules = [];
@@ -152,6 +156,11 @@
     }
   }), (function(text) {
     return alert(("going to customer number " + text));
+  }));
+  new QuickLaunchModule("search for customer", "customer.png", (function() {
+    return 0.5;
+  }), (function(text) {
+    return alert(("Searching for customer with '" + text + "'"));
   }));
   new QuickLaunchModule("lookup product by id", "product.png", (function(text) {
     if (isNaN(text)) {

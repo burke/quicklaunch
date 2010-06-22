@@ -77,12 +77,13 @@ QuickLaunch: (->
       for module in modules
         if module.relevance(text) != 0
           drawerItems.push(module)
+      drawerItems: _.sortBy(drawerItems, (e) -> e.relevance(text)) # TODO don't calculate this twice
       redrawDrawer()
     ), 0)
     true
 
   qlSubmit: (evt) ->
-    modules[0].performAction(qlinput.val())
+    modules[drawerSelection].performAction(qlinput.val())
     true
 
   modules: []
@@ -130,6 +131,12 @@ new QuickLaunchModule \
       0
     else 1),
   ((text) -> alert("going to customer number $text"))
+
+new QuickLaunchModule \
+  "search for customer",
+  "customer.png",
+  (-> 0.5)
+  ((text) -> alert("Searching for customer with '$text'"))
 
 new QuickLaunchModule \
   "lookup product by id",
