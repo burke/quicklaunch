@@ -2,6 +2,7 @@
   position:    absolute;
   left:        50%;
   top:         30%;
+  font-family: helvetica,arial,sans;
 }
 
 form#quicklaunch {
@@ -23,15 +24,49 @@ form#quicklaunch input {
   background:  transparent;
   border:      none;
   font-size:   16px; 
-  font-family: helvetica,arial,sans;
   color:       #222;
 }
 
-div#quicklaunchdrawer {
+ul#quicklaunchdrawer {
+  list-style-type: none; 
+  padding:     64px 18px 40px 14px;
   height:      400px;
   width:       438px;
-  background:  url('backpanel.png');
+  background:  url('backpanel.png') top left no-repeat;
   position:    absolute;
   z-index:     8000;
   margin:      -32px 0 0 -219px;
+}
+
+ul#quicklaunchdrawer li {
+  height: 42px;
+  width: 335px;   
+  font-size: 14px;
+  padding: 0 0 0 75px;
+  line-height: 42px;
+}
+
+ul#quicklaunchdrawer li.selected {
+  margin: 0;
+  background: url('drawer_selected_item.png?asdjfjasdfjasdjf')
+}
+
+ul#quicklaunchdrawer li img {
+  width: 36px;
+  height: 36px;
+  margin-top: 4px;
+  float: left;
+}
+
+#quicklaunchtitleimage {
+  position:absolute;
+  margin: -64px 0 0 -205px;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+}
+
+#quicklaunchtitleimage img {
+  width: 100px;
+  height: 100px;
 }
